@@ -23,6 +23,22 @@ public class GlobalException {
 		return new ResponseEntity<MyErrorDetails>(myErr,HttpStatus.BAD_REQUEST);
 	}
 	
+	@ExceptionHandler(ProductException.class)  
+	public ResponseEntity<MyErrorDetails> productsExceptionHandler(ProductException productException,WebRequest req){
+        
+		MyErrorDetails myErr = new MyErrorDetails(LocalDateTime.now(), productException.getMessage(), req.getDescription(false));
+		
+		return new ResponseEntity<MyErrorDetails>(myErr,HttpStatus.BAD_REQUEST);
+	}
+	
+	@ExceptionHandler(WishlistException.class)  
+	public ResponseEntity<MyErrorDetails> wishlistsExceptionHandler(WishlistException wishlistException,WebRequest req){
+        
+		MyErrorDetails myErr = new MyErrorDetails(LocalDateTime.now(), wishlistException.getMessage(), req.getDescription(false));
+		
+		return new ResponseEntity<MyErrorDetails>(myErr,HttpStatus.BAD_REQUEST);
+	}
+	
 	
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<MyErrorDetails> myExceptionHandler(Exception exception,WebRequest req){

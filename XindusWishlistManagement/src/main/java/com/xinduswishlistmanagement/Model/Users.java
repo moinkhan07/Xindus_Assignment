@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,9 @@ public class Users implements UserDetails{
 	private String email;
 	
 	private String password;
+	
+	@OneToOne
+	private Wishlist wishlist;
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {

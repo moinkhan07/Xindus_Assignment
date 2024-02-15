@@ -21,7 +21,7 @@ import com.xinduswishlistmanagement.Exception.UserException;
 import com.xinduswishlistmanagement.Model.JWTRequest;
 import com.xinduswishlistmanagement.Model.JWTResponse;
 import com.xinduswishlistmanagement.Model.Users;
-import com.xinduswishlistmanagement.Service.UserService;
+import com.xinduswishlistmanagement.Service.UserServiceImplementation;
 
 @RestController
 @RequestMapping("/auth")
@@ -38,7 +38,7 @@ public class AuthController {
     private JwtHelper helper;
     
     @Autowired
-    private UserService userService;
+    private UserServiceImplementation userService;
 
     private Logger logger = LoggerFactory.getLogger(AuthController.class);
 
