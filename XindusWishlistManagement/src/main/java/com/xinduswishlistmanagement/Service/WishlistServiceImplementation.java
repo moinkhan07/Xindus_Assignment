@@ -85,4 +85,18 @@ public class WishlistServiceImplementation implements WishlistService{
 	    
 	}
 
+	@Override
+	public Wishlist getLoggedInUserWishlist() throws WishlistException, UserException, ProductException {
+		String loggedInUserEmail = SecurityContextHolder.getContext().getAuthentication().getName();
+		
+		Optional<Users> opt = userRepository.findByEmail(loggedInUserEmail);
+		if(opt.isEmpty()) {
+			throw new UserException("User not found");
+		}
+		Users loggedInUser = opt.get();
+		
+		Wishlist wishlist = loggedInUser.getWishlist();
+		return wishlist;
+	}
+
 }

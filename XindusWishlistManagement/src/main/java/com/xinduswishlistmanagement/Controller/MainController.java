@@ -77,5 +77,11 @@ public class MainController {
 		Wishlist deletedProduct = wishlistService.deleteProductFromWishlist(pId);
 		return new ResponseEntity<>(deletedProduct,HttpStatus.OK);
 	}
+	
+	@GetMapping("/wishlists")
+	public ResponseEntity<Wishlist> getLoggedInUserWishlistHandler() throws ProductException, WishlistException, UserException{
+		Wishlist loggedInUserWishlist = wishlistService.getLoggedInUserWishlist();
+		return new ResponseEntity<>(loggedInUserWishlist,HttpStatus.OK);
+	}
 
 }

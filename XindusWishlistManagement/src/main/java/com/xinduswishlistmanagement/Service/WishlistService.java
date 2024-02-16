@@ -11,4 +11,6 @@ public interface WishlistService {
 	
 	public Wishlist deleteProductFromWishlist(Integer ProductId) throws WishlistException,UserException,ProductException;
 	
+	public Wishlist getLoggedInUserWishlist() throws WishlistException,UserException,ProductException; 
+
 }
