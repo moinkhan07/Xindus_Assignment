@@ -11,7 +11,7 @@ public interface ProductService {
 	
 	public Product deleteProduct(Integer productId) throws ProductException;
 	
-	public Product updateProduct(Integer productId,Product product) throws ProductException;
+	public Product updateProduct(Integer productId,Integer productPrice) throws ProductException;
 	
 	public Product viewProduct(Integer productId) throws ProductException;
 	
